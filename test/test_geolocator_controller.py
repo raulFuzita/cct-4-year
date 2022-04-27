@@ -9,7 +9,7 @@ if __name__ == "__main__":
 
     load_dotenv()
 
-    api_key = "full_privilege"
+    api_key = os.getenv("API_KEY_TEST")
     address = "Wood Dale View, Woodale, Ballycragh, Firhouse Village ED, Tallaght, South Dublin, Dublin 24"
     
     req = {"api_key": api_key, "address": address}

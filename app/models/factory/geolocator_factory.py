@@ -5,7 +5,7 @@ import geopy.geocoders
 from geopy.geocoders import Nominatim
 from geopy.geocoders import GoogleV3
 from dotenv import load_dotenv
-from app.models.geolocator import Geolocator
+from app.models.geolocators.geolocator import Geolocator
 
 
 ctx = ssl.create_default_context(cafile=certifi.where())

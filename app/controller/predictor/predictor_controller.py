@@ -15,6 +15,11 @@ class PredictorController:
         if not 'api_key' in self.req:
             return {"response": "Missing API key", "status": 400,}
 
+        api_key = self.req['api_key']
+
+        if api_key != os.getenv("API_KEY") and api_key != os.getenv("API_KEY_TEST"):
+            return {"response": "Invalid API key", "status": 403}
+
         model = PropertyPredictor('property_wt.pkl')
         model.load_predictors('property_predictors.json')
         predictors = model.get_predictors()

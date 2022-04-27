@@ -6,7 +6,7 @@ if __name__ == "__main__":
     import ssl
     import geopy.geocoders
     from geopy.geocoders import Nominatim
-    from app.models.geolocator import Geolocator
+    from app.models.geolocators.geolocator import Geolocator
 
     ctx = ssl.create_default_context(cafile=certifi.where())
     geopy.geocoders.options.default_ssl_context = ctx
