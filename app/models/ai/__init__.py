@@ -1,0 +1,2 @@
+from .predictor_interface import Predictor
+from .property_predictor import PropertyPredictor
