@@ -3,9 +3,6 @@ if __name__ == "__main__":
     import sys
     sys.path.append('..')
     import pandas as pd
-    import numpy as np
-    import sklearn
-    from sklearn.linear_model import LinearRegression
     from app.models.ai.property_predictor import PropertyPredictor
 
     # SALE_DATE  IF_MARKET_PRICE  IF_VAT_EXCLUDED  LONGITUDE   LATITUDE
