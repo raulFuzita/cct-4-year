@@ -1,1 +1,1 @@
-web: gunicorn app.wsgi:app --bind
+web: gunicorn app.wsgi:app.server -b
