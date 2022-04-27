@@ -21,7 +21,8 @@ if __name__ == "__main__":
     print(type(X_test))
     print(X_test)
 
-    predictor = PropertyPredictor('property_wt.pkl')
-    print(predictor.predict(X_test.to_numpy()))
+    model = PropertyPredictor('property_wt.pkl', 'property_predictors.json')
+    X_test = X_test[model.get_predictors()]
+    print(model.predict(X_test.to_numpy()))
     # print(predictor.predict(data))
     print('Test ran successfully')
