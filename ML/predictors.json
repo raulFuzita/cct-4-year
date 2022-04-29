@@ -1,0 +1,9 @@
+[
+    "bedrooms",
+    "bathrooms",
+    "property_size",
+    "longitude",
+    "latitude",
+    "property_type",
+    "year"
+]
