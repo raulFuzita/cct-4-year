@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -cp target/classes:target/dependency/* com.spv.HelloWorld
+web: java $JAVA_OPTS -cp spv/target/classes:target/dependency/* com.spv.HelloWorld
