@@ -1,2 +1,2 @@
 # web: java %JAVA_OPTS% -jar target\dependency\webapp-runner.jar --port %PORT% target\*.war
-web: java -cp spv/target/classes/;target/dependency/* com.spv.HelloWorld
+web: java -cp spv/target/classes/;spv/target/dependency/* com.spv.HelloWorld
