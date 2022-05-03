@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.cct4year;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
