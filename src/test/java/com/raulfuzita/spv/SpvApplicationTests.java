@@ -1,10 +1,10 @@
-package com.example.spv;
+package com.raulfuzita.spv;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class DemoApplicationTests {
+class SpvApplicationTests {
 
 	@Test
 	void contextLoads() {

@@ -7,15 +7,16 @@ import org.springframework.stereotype.*;
 
 @Controller
 @SpringBootApplication
-public class DemoApplication {
+public class SpvApplication {
 
-    @RequestMapping("/")
-    @ResponseBody
-    String home() {
-      return "Hello World!";
-    }
+	@RequestMapping("/")
+    	@ResponseBody
+    	String home() {
+      		return "Hello World!";
+    	}
 
-    public static void main(String[] args) {
-        SpringApplication.run(DemoApplication.class, args);
-    }
+	public static void main(String[] args) {
+		SpringApplication.run(SpvApplication.class, args);
+	}
+
 }
