@@ -31,11 +31,11 @@
 	    <version>2.5</version>
 	    <scope>provided</scope>
 	</dependency>
-	<!-- https://mvnrepository.com/artifact/com.heroku/webapp-runner -->
 	<dependency>
-	    <groupId>com.heroku</groupId>
-	    <artifactId>webapp-runner</artifactId>
-	    <version>9.0.30.0</version>
+	  <groupId>com.heroku</groupId>
+	  <artifactId>webapp-runner</artifactId>
+	  <version>9.0.30.0</version>
+	  <scope>provided</scope>
 	</dependency>
   </dependencies>
 
