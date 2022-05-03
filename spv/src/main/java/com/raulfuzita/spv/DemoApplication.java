@@ -1,4 +1,4 @@
-package com.example.cct4year;
+package com.raulfuzita.spv;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
