@@ -4,9 +4,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
+        <groupId>com.raulfuzita</groupId>
+        <artifactId>spv</artifactId>
         <version>0.0.1-SNAPSHOT</version>
+        <name>spv</name>
+        <packaging>pom</packaging>
         <relativePath>spv/pom.xml</relativePath>
     </parent>
 
