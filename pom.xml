@@ -3,11 +3,6 @@
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>bootstrapSPV</artifactId>
-    <name>Bootstrap SPV</name>
-    <version>0.0.1-SNAPSHOT</version>
-    
-
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
@@ -15,6 +10,9 @@
         <relativePath>spv/pom.xml</relativePath>
     </parent>
 
-    <!-- Additional lines to be added here... -->
+    <artifactId>Maven</artifactId>
+    <name>Child POM</name>
+    <packaging>pom</packaging>
+    
 
 </project>
