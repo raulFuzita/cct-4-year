@@ -31,6 +31,12 @@
 	    <version>2.5</version>
 	    <scope>provided</scope>
 	</dependency>
+	<!-- https://mvnrepository.com/artifact/com.heroku/webapp-runner -->
+	<dependency>
+	    <groupId>com.heroku</groupId>
+	    <artifactId>webapp-runner</artifactId>
+	    <version>9.0.30.0</version>
+	</dependency>
   </dependencies>
 
   <build>
@@ -83,10 +89,10 @@
                     <configuration>
                     	<artifactItems>
                     		<artifactItem>
-                    			<groupId>com.heroku</groupId>
-                    			<artifactId>webapp-runner</artifactId>
-                    			<version>${webapp-runner.version}</version>
-                    			<destFileName>webapp-runner.jar</destFileName>
+                    			<groupId>com.github.jsimone</groupId>
+                                <artifactId>webapp-runner</artifactId>
+                                <version>9.0.30.0</version>
+                                <destFileName>webapp-runner.jar</destFileName>
                     		</artifactItem>
                     	</artifactItems>
                     </configuration>
