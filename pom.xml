@@ -12,7 +12,7 @@
 
     <artifactId>Maven</artifactId>
     <name>Child POM</name>
-    <packaging>jar</packaging>
+    <packaging>pom</packaging>
     
 
 </project>
