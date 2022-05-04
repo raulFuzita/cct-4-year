@@ -35,7 +35,10 @@ public class User {
 	@Column(nullable = false)
 	private String password;
 	
+	// @Temporal(TemporalType.TIMESTAMP)
 	private LocalDate birthday;
+	
+	// If a property doesn't need in the database use @Transient notation
 	
 	public User() {}
 

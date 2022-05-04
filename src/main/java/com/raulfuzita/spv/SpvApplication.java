@@ -9,11 +9,10 @@ import org.springframework.stereotype.*;
 @SpringBootApplication
 public class SpvApplication {
 
-	@RequestMapping("/")
-    @ResponseBody
-	String home() {
-  		return "Hello World!";
-	}
+	/*
+	 * @RequestMapping("/")
+	 * @ResponseBody String home() { return "Hello World!"; }
+	 */
 
 	public static void main(String[] args) {
 		SpringApplication.run(SpvApplication.class, args);
