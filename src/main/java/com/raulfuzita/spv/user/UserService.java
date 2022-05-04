@@ -54,7 +54,6 @@ public class UserService implements UserDetailsService {
 		try {
 			LocalDate newBirthday = LocalDate.parse(birthday, 
 					DateTimeFormatter.ofPattern("yyyy-MM-dd"));
-			System.out.println(birthday);
 			User user = userRepository.findById(userId)
 					.orElseThrow(()-> new IllegalStateException(
 							String.format("User with id %o does not exist", userId)));
@@ -73,5 +72,9 @@ public class UserService implements UserDetailsService {
 		return userRepository.findUserByEmail(email)
 				.orElseThrow(()-> new UsernameNotFoundException(
 						String.format(USER_NOT_FOUND_MSG, email)));
+	}
+	
+	public String signupUser(User user) {
+		return "";
 	}
 }

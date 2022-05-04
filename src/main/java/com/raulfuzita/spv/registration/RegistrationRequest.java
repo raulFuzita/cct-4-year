@@ -2,20 +2,20 @@ package com.raulfuzita.spv.registration;
 
 public class RegistrationRequest {
 
-	private final String firstName;
+	private final String name;
 	private final String email;
 	private final String password;
 	private final String birthday;
 	
-	public RegistrationRequest(String firstName, String email, String password, String birthday) {
-		this.firstName = firstName;
+	public RegistrationRequest(String name, String email, String password, String birthday) {
+		this.name = name;
 		this.email = email;
 		this.password = password;
 		this.birthday = birthday;
 	}
 
-	public String getFirstName() {
-		return firstName;
+	public String getName() {
+		return name;
 	}
 
 	public String getEmail() {
@@ -32,10 +32,11 @@ public class RegistrationRequest {
 
 	@Override
 	public String toString() {
-		return "RegistrationRequest [firstName=" + firstName 
-				+ ", email=" + email + ", password=" + password
-				+ ", birthday=" + birthday + "]";
+		return "RegistrationRequest [name=" + name + ", email=" + email 
+				+ ", password=" + password + ", birthday="
+				+ birthday + "]";
 	}
-
+	
+	
 	
 }
