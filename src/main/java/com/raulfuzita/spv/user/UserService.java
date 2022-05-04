@@ -9,16 +9,20 @@ import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UserService {
+public class UserService implements UserDetailsService {
 	
 	private final UserRepository userRepository;
 	
+	private final static String USER_NOT_FOUND_MSG = "User with email %s not found";
+	
 	@Autowired
 	public UserService(UserRepository userRepository) {
-		super();
 		this.userRepository = userRepository;
 	}
 
@@ -60,5 +64,14 @@ public class UserService {
 					String.format("Date format invalid %s. Expected yyyy-MM-dd", birthday));
 		}
 		
+	}
+
+	@Override
+	public UserDetails loadUserByUsername(String email) 
+			throws UsernameNotFoundException {
+		
+		return userRepository.findUserByEmail(email)
+				.orElseThrow(()-> new UsernameNotFoundException(
+						String.format(USER_NOT_FOUND_MSG, email)));
 	}
 }
