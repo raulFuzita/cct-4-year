@@ -24,7 +24,7 @@ class PredictorController:
         model.load_predictors('property_predictors.json')
         predictors = model.get_predictors()
 
-        if not predictors.issubset(self.req):
+        if not set(predictors).issubset(self.req):
             return {"response": "Missing required fields", "status": 400}
 
         data = pd.DataFrame(self.req, index=[0])

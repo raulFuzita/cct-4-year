@@ -47,22 +47,22 @@ class PropertyPredictor(Predictor):
         full_path = self.__get_full_path(predictor_name)
         self.__get_file_status(full_path)
         try:
-            self.predictors = set(json.load(open(full_path, 'r')))
+            self.predictors = list(json.load(open(full_path, 'r')))
         except Exception as e:
             print('Error loading predictors:', e)
             raise e
 
-    def get_predictors(self) -> set:
+    def get_predictors(self) -> list:
         """
         Get the predictors.
         """
         return self.predictors
 
-    def set_predictors(self, predictors: set):
+    def set_predictors(self, predictors: list):
         """
         Set the predictors.
         """
-        self.predictors = set(predictors)
+        self.predictors = list(predictors)
 
     def get_model(self):
         """
@@ -76,7 +76,7 @@ class PropertyPredictor(Predictor):
         """
         self.model = model
 
-    def predict(self, data: set):
+    def predict(self, data: list):
         """
         Predict the properties of a given data.
         """

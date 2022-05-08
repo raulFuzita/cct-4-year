@@ -5,13 +5,14 @@ if __name__ == "__main__":
     import pandas as pd
     from app.models.ai.property_predictor import PropertyPredictor
 
-    # SALE_DATE  IF_MARKET_PRICE  IF_VAT_EXCLUDED  LONGITUDE   LATITUDE
     data = {
-        'SALE_DATE': 2019, 
-        'IF_MARKET_PRICE': 1, 
-        'IF_VAT_EXCLUDED': 1, 
-        'LONGITUDE': -6.283672, 
-        'LATITUDE': 53.361690
+        "bedrooms": 3,
+        "bathrooms": 1,
+        "property_size": 98,
+        "longitude": -9.08907,
+        "latitude": 53.28038,
+        "property_type": 9,
+        "year": 2022
     }
 
     # data = [[2019, 1, 1, -6.283672, 53.361690]]
