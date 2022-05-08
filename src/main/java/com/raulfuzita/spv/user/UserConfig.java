@@ -14,8 +14,10 @@ public class UserConfig {
 	CommandLineRunner commandLineRunner(UserRepository repository) {
 		return args -> {
 			
-			User john = new User("John", "john@email.com", "123", LocalDate.now());
-			User peter = new User("Peter", "peter@email.com", "123", LocalDate.now());
+			User john = new User("John", "john@email.com", 
+					"123", LocalDate.now(), UserRole.USER);
+			User peter = new User("Peter", "peter@email.com", 
+					"123", LocalDate.now(), UserRole.USER);
 			
 			repository.saveAll(List.of(john, peter));
 		};

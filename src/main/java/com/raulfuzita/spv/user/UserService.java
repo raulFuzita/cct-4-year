@@ -1,9 +1,11 @@
 package com.raulfuzita.spv.user;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 import javax.transaction.Transactional;
 
@@ -12,18 +14,27 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import com.raulfuzita.spv.registration.token.ConfirmationToken;
+import com.raulfuzita.spv.registration.token.ConfirmationTokenService;
 
 @Service
 public class UserService implements UserDetailsService {
 	
 	private final UserRepository userRepository;
 	
-	private final static String USER_NOT_FOUND_MSG = "User with email %s not found";
+	private final String USER_NOT_FOUND_MSG = "User with email %s not found";
+	private final BCryptPasswordEncoder bCryptPasswordEncoder;
+	private final ConfirmationTokenService confirmationTokenService;
 	
 	@Autowired
-	public UserService(UserRepository userRepository) {
+	public UserService(UserRepository userRepository, BCryptPasswordEncoder bCryptPasswordEncoder,
+			ConfirmationTokenService confirmationTokenService) {
 		this.userRepository = userRepository;
+		this.bCryptPasswordEncoder = bCryptPasswordEncoder;
+		this.confirmationTokenService = confirmationTokenService;
 	}
 
 	public List<User> getUsers() {
@@ -75,6 +86,34 @@ public class UserService implements UserDetailsService {
 	}
 	
 	public String signupUser(User user) {
-		return "";
+		boolean userExists = userRepository
+				.findUserByEmail(user.getEmail())
+				.isPresent();
+		
+		if (userExists) {
+			throw new IllegalStateException("Email already taken");
+		}
+		
+		String encodedPassword = bCryptPasswordEncoder.encode(user.getPassword());
+		user.setPassword(encodedPassword);
+		userRepository.save(user);
+		
+		String token = UUID.randomUUID().toString();
+		
+		ConfirmationToken confirmationToken = new ConfirmationToken(
+				token,
+				LocalDateTime.now(),
+				LocalDateTime.now().plusMinutes(15),
+				user
+		);
+		confirmationTokenService.saveConfirmationToken(confirmationToken);
+		
+		// TODO: Send email
+		
+		return token;
+	}
+	
+	public int enableUser(String email) {
+		return userRepository.enableUser(email);
 	}
 }

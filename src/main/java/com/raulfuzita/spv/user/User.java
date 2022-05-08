@@ -52,28 +52,31 @@ public class User implements UserDetails {
 	@Enumerated(EnumType.STRING)
 	private UserRole userRole;
 	
-	private boolean locked;
-	private boolean enabled;
+	private boolean locked = false;
+	private boolean enabled = false;
 	
 	// If a property doesn't need in the database use @Transient notation
 	
 	public User() {}
 	
 	public User(long id, String name, String email, String password, 
-			LocalDate birthday) {
+			LocalDate birthday, UserRole userRole) {
 		this.id = id;
 		this.name = name;
 		this.email = email;
 		this.password = password;
 		this.birthday = birthday;
+		this.userRole = userRole;
 	}
-
+	
+	
 	public User(String name, String email, String password, 
-			LocalDate birthday) {
+			LocalDate birthday, UserRole userRole) {
 		this.name = name;
 		this.email = email;
 		this.password = password;
 		this.birthday = birthday;
+		this.userRole = userRole;
 	}
 
 	public long getId() {

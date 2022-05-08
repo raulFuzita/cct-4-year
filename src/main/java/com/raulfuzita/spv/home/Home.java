@@ -14,4 +14,12 @@ public class Home {
 		model.addAttribute("brand", "SPV");
   		return "index";
 	}
+	
+	// predict_price
+	@RequestMapping("predict")
+	@GetMapping
+	String predict(Model model) {
+		model.addAttribute("brand", "SPV");
+  		return "predict_price";
+	}
 }
