@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="https://www.thymeleaf.org" 
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <head>
     <meta charset="utf-8">
@@ -18,48 +20,21 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.css">
 </head>
 
-<body><main class="page contact-page">
-    <section class="portfolio-block contact" style="background: #080808;color: rgb(255,255,255);">
-        <div class="container">
-            <!--
-VIEW IN FULL SCREEN MODE
-FULL SCREEN MODE: http://salehriaz.com/404Page/404.html
-
-DRIBBBLE: https://dribbble.com/shots/4330167-404-Page-Lost-In-Space
--->
-
-<body class="bg-purple" style="height:100%">
-
-  <div class="stars" style="min-height:100vh">
-    <div class="central-body">
-      <img class="image-404" src="assets/img/muppers/404.svg" width="300px">
-        <a href="/" class="btn-go-home" target="_self">Back Home</a>
-    </div>
-    <div class="objects">
-      <img class="object_rocket" src="assets/img/muppers/rocket.svg" width="40px">
-      <div class="earth-moon">
-        <img class="object_earth" src="assets/img/muppers/earth.svg" width="100px">
-        <img class="object_moon" src="assets/img/muppers/moon.svg" width="80px">
-      </div>
-      <div class="box_astronaut">
-        <img class="object_astronaut" src="assets/img/muppers/astronaut.svg" width="140px">
-      </div>
-    </div>
-    <div class="glowing_stars">
-      <div class="star"></div>
-      <div class="star"></div>
-      <div class="star"></div>
-      <div class="star"></div>
-      <div class="star"></div>
-
-    </div>
-
-  </div>
-
-</body>
-        </div>
-    </section>
-</main>
+<body>
+    <header th:replace="fragments/header :: header"></header>
+    <main><a id="back-to-top" class="btn btn-primary" href="#" type="button"><i class="fa fa-arrow-up"></i></a>
+        <section class="banner-backgroud salmon-red">
+            <div class="banner-wrapper light-white">
+                <div><i class="fa fa-warning salmon-red-text"></i></div>
+                <div class="px-5">
+                    <h1 class="salmon-red-text" style="font-family: Poppins, sans-serif;">Oh Sorry!</h1>
+                    <h3 class="fw-bolder dark-gray-text" style="font-family: Poppins, sans-serif;">Check the details and your card again</h3>
+                    <p>We are sorry, but during the verification process an error was detected, please repeat the process and re-verify the data.</p>
+                </div>
+                <div class="w-75 px-4"><a class="link-light btn btn-lg medium-purple" href="#" style="width: 100%;">cancel</a></div>
+            </div>
+        </section>
+    </main>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.js"></script>

@@ -1,14 +1,67 @@
 <!DOCTYPE html>
-<html xmlns:th="https://www.thymeleaf.org">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="https://www.thymeleaf.org" 
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
 <head>
-<title>Insert title here</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>SPV</title>
+    <meta property="og:type" content="">
+    <link rel="icon" type="image/svg+xml" sizes="92x35" href="assets/img/logo.svg">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins&amp;display=swap">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css">
+    <link rel="stylesheet" href="assets/css/styles.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.css">
 </head>
+
 <body>
-
-	<form action="login" method="POST">
-		<input type="text" name="email" placeholder="Email">
-		<input type="password" name="password" placeholder="Password">
-	</form>
-
+    <header th:replace="fragments/header :: header"></header>
+    <div id="menu-mask"></div>
+    <main>
+        <div id="alert" class="alert alert-warning shadow-sm" th:classappend="${param.error} ? 'show' : ''">
+        	<i class="fa fa-exclamation-circle" id="icon-alert"></i>
+        	<span id="message-alert" class="message-alert">
+        	<strong>Alert:</strong> User doesn't exist or password incorrect</span>
+        	<span class="float-end alert-close">X</span>
+        </div>
+        <section class="container"></section><a id="back-to-top" class="btn btn-primary" href="#" type="button"><i class="fa fa-arrow-up"></i></a>
+        <section class="container-xxl p-0 position-relative">
+            <div class="row auth-wrapper brighter-white">
+                <div class="col d-none d-lg-block">
+                    <div class="login-cover" style="background: url(&quot;assets/img/login-cover.png&quot;) no-repeat;height: 100%;background-size: contain;"></div>
+                </div>
+                <div class="col py-5 px-5">
+                    <div class="px-md-5">
+                        <h2 class="fw-bold dark-purple-text" style="font-family: Poppins, sans-serif;">Login</h2>
+                        <p class="fw-bold mt-3 mb-4 mb-md-5 dark-gray-text" style="font-family: Poppins, sans-serif;">Connect with the best property consultation network. Log in or join by registering.<br></p>
+                        <form style="font-family: Inter, sans-serif;" method="post" action="http://localhost:8080/login"><label class="form-label fw-bolder dark-gray-text" style="font-family: Inter, sans-serif;margin-left: 10px;">E-mail</label><input class="shadow-sm form-control" type="email" data-bs-toggle="tooltip" data-bss-tooltip="" id="email" placeholder="e-mail" style="font-family: Inter, sans-serif;" title="Must use a valid email format (example@email.com)" required="" name="username"><span class="error-msg invalid mb-3">Missing email or invalid email format</span><label class="form-label fw-bolder dark-gray-text" style="margin-left: 10px;">Password</label><input class="shadow-sm form-control" type="password" data-bs-toggle="tooltip" data-bss-tooltip="" id="password" placeholder="password" style="font-family: Inter, sans-serif;" title="Password must be longer than 6 and up to 22" required="" minlength="6" maxlength="20" name="password"><span class="error-msg invalid mb-3">Missing password or out of required size</span>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-check"><input class="form-check-input" type="checkbox" id="rememberme"><label class="form-check-label" for="rememberme" style="font-size: 0.9em;">Remember me</label></div>
+                                </div>
+                                <div class="col text-center text-md-end"><a class="fw-bold dark-green-text" href="#" style="font-family: 'Open Sans', sans-serif;font-size: 0.9em;">Forgot password?</a></div>
+                            </div>
+                            <div class="text-center mt-5 mb-4"><a class="link-light d-block mx-auto btn btn-lg medium-purple mb-2 d-none" id="login" href="#" style="width: 100%;">login</a><button class="btn link-light mx-auto btn-lg medium-purple w-100" id="btn-login" type="submit">login</button></div>
+                        </form>
+                        <div class="text-center"><span class="fs-6">Do not have an account yet?&nbsp;</span><a class="fs-6 fw-bold dark-green-text" href="register.html" style="font-family: Poppins, sans-serif;">Join us!</a></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js" integrity="sha256-eTyxS0rkjpLEo16uXTS0uVCS4815lc40K2iVpWDvdSY=" crossorigin="anonymous"></script>
+    <script src="assets/js/script.min.js"></script>
+    <script src="assets/js/requests/form_and_notification.min.js"></script>
+    <script src="assets/js/requests/login.min.js"></script>
 </body>
+
 </html>

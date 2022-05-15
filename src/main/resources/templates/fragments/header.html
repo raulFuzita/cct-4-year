@@ -1,0 +1,57 @@
+
+<header>
+	<div id="menu-mask"></div>
+	<nav
+		class="navbar navbar-dark navbar-expand-lg bg-dark shadow-sm navbar-light-lg py-3"
+		id="navbar-menu">
+		<div class="container">
+			<a class="navbar-brand d-flex align-items-center" href="/"><img
+				src="assets/img/logo.svg"></a>
+			<button data-bs-toggle="collapse" class="navbar-toggler"
+				data-bs-target="#navcol-3" id="hamburger-menu">
+				<span class="visually-hidden">Toggle navigation</span><span
+					class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse position-relative" id="navcol-3">
+				<div sec:authorize="isAuthenticated()" 
+					class="d-flex justify-content-center order-sm-first order-lg-last profile-menu mb-4 mb-lg-auto">
+					<div
+						class="profile-border-pic rounded-circle bd-2 medium-green-border">
+						<a id="pic-trigger" data-toggle="dropdown" aria-expanded="false"
+							href="#" role="button"><img class="profile-pic"
+							src="assets/img/profile.png"></a>
+					</div>
+					<div class="dropdown d-flex">
+						<a id="user-name" class="dropdown-toggle user-name" aria-expanded="false"
+							data-bs-toggle="dropdown" href="#">John Doe</a>
+						<div class="dropdown-menu">
+							<a class="dropdown-item" href="dashboard">Dashboard</a><a
+								class="dropdown-item" href="profile">Profile</a><a
+								class="dropdown-item" href="settings">Settings</a><a
+								class="dropdown-item" href="loging">Logout</a>
+						</div>
+					</div>
+				</div>
+				<ul
+					class="navbar-nav d-flex mx-auto order-sm-last order-lg-first menu-header">
+					<li class="nav-item"><a class="nav-link btn-pill-md" href="/">Home</a></li>
+					<li class="nav-item"><a class="nav-link active btn-pill-md"
+						href="about">About</a></li>
+					<li class="nav-item"><a class="nav-link btn-pill-md"
+						href="/#service-option">Services</a></li>
+					<li class="nav-item"><a class="nav-link btn-pill-md"
+						href="/#price-plans">Prices</a></li>
+					<li class="nav-item"><a class="nav-link btn-pill-md"
+						href="/#contact-form">Contact</a></li>
+				</ul>
+				<div sec:authorize="isAnonymous()" class="d-inline-block login-signup">
+					<a class="btn link-light shadow-sm pill medium-purple"
+						role="button" style="-bs-primary-rgb: 106, 62, 203;"
+						href="login">Login</a><a
+						class="btn link-light shadow-sm pill medium-purple" role="button"
+						href="register">Signup</a>
+				</div>
+			</div>
+		</div>
+	</nav>
+</header>

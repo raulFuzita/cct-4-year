@@ -8,7 +8,9 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import com.raulfuzita.spv.user.UserService;
 
@@ -25,21 +27,28 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		this.userService = userService;
 		this.bCryptPasswordEncoder = bCryptPasswordEncoder;
 	}
-
+	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http
-			.csrf().disable()
-				.authorizeHttpRequests()
-				.antMatchers("/", "signup").permitAll()
-				.antMatchers(
-						"/api/v1/registration/**", 
-						"/api/v1/user/**",
-						"/api/v1/prediction/**").permitAll()
-				.anyRequest()
-				.authenticated()
-				.and()
-			.formLogin();
+			.authorizeHttpRequests()
+			.antMatchers("/about*", "/login*", "/logout", "/register*", "/index", 
+					"/", "/resources/**", "/assets/**").permitAll()
+			.antMatchers(
+					"/api/v1/registration/**", 
+					"/api/v1/user/**",
+					"/api/v1/prediction/**").permitAll()
+			.anyRequest()
+			.authenticated()
+			.and()
+			.formLogin()
+			.loginPage("/login")
+//			.loginProcessingUrl("/login")
+			.defaultSuccessUrl("/dashboard", true)
+			.failureUrl("/login?error=true")
+			.and()
+			.logout().logoutSuccessUrl("/")
+			.and().csrf().disable();
 	}
 	
 	@Override

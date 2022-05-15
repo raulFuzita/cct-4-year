@@ -1,16 +1,231 @@
 <!DOCTYPE html>
-<html xmlns:th="https://www.thymeleaf.org">
-<head>
-<title>Insert title here</title>
-</head>
-<body>
-	
-	<h1>Home</h1>
-	<h3 th:text="${brand}" />
-	<a href="free">Free</a> <br>
-	<a href="monthly">Monthly</a> <br>
-	<a href=half-yearly>Half-Yearly</a> <br>
-	<a href="yearly">Yearly</a>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="https://www.thymeleaf.org" 
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>SPV</title>
+    <meta property="og:type" content="">
+    <link rel="icon" type="image/svg+xml" sizes="92x35" href="assets/img/logo.svg">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins&amp;display=swap">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css">
+    <link rel="stylesheet" href="assets/css/styles.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.css">
+</head>
+
+<body>
+    <header th:replace="fragments/header :: header"></header>
+    <main>
+        <div th:replace="fragments/alert :: div"></div>
+        <a id="back-to-top" class="btn btn-primary" href="#" type="button"><i class="fa fa-arrow-up"></i></a>
+        <section class="container"></section>
+        <section class="home-cover p-0 position-relative"><img class="image-cover" src="assets/img/cover.png">
+            <div class="row position-relative">
+                <div class="col mx-auto cover-left col-12 col-md-6">
+                    <div></div>
+                </div>
+                <div class="col d-lg-flex align-items-lg-center cover-right">
+                    <div class="card m-auto" style="padding: 20px;">
+                        <div class="card-body">
+                            <h1 class="fw-bold card-title white-text mb-5" style="font-family: Poppins, sans-serif;">Feel free to <br>search<br></h1>
+                            <p class="card-text h5 mb-4 white-text" style="font-family: Inter, sans-serif;">Have the freedom to evaluate your property quickly and practically. Enquire now!</p>
+                            <form method="get" action="login.html">
+                                <div class="form-group mb-3"><input class="form-control" type="email" data-bs-toggle="tooltip" data-bss-tooltip="" id="email-login" placeholder="E-mail" name="email" autocomplete="on" inputmode="email" required="" title="Enter a valid email format"><i class="fas fa-times clear-input" data-target=""></i></div><button class="btn link-light dark-yellow w-100" id="direct-login" type="submit" style="--bs-primary: #6A3ECB;--bs-primary-rgb: 106,62,203;">Get started!</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section style="height: 7vh;"></section>
+        <section class="container">
+            <h1 class="fw-bold text-center dark-blue-text" id="service-option" style="font-family: Poppins, sans-serif;">Learn more about our services</h1>
+            <hr class="topic dark-blue-text mb-3">
+            <div>
+                <div class="container py-4 py-xl-5 position-relative">
+                    <div class="mb-3">
+                        <div class="row gy-4 row-cols-1 row-cols-md-2 row-cols-xl-3 scrolling-wrapper-flexbox" id="service-scrollable">
+                            <div class="col" id="item1">
+                                <div class="card"><img class="card-img-top w-100 d-block fit-cover" style="height: 200px;" src="assets/img/common_user.svg">
+                                    <div class="card-body shadow p-4 position-relative">
+                                        <h4 class="card-title">Accessibility for everyone!</h4>
+                                        <p class="card-text read-more-content" id="commonuser" style="height: 145px;">Committing to a property loan is a responsibility for years. You want to make sure you will not pay an unfair price for the house of your dreams. You may want to know if that property can become an asset in the future. Having an estimated price for property gives negotiating power to buy or&nbsp;<br>years. You want to make sure you will not pay an unfair price for the house of your dreams. You may want to know if that property can become an asset in the future. Having an estimated price for property gives negotiating power to buy or&nbsp;<br><br>Committing to a property loan is a responsibility for years. You want to make sure you will not pay an unfair price for the house of your dreams. You may want to know if that property can become an asset in the future. Having an estimated price for property gives negotiating power to buy or&nbsp;<br><br></p>
+                                        <div class="d-flex"><a class="link-light btn read-more dark-yellow m-auto" style="border-radius: 13px;" data-target="#commonuser" data-css="read-more-collapse">Read more&nbsp; &nbsp;&nbsp;<i class="fas fa-chevron-down" data-target="#commonuser" data-css="read-more-collapse"></i></a></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col" id="item2">
+                                <div class="card"><img class="card-img-top w-100 d-block fit-cover" style="height: 200px;" src="assets/img/construction_company.svg">
+                                    <div class="card-body shadow p-4">
+                                        <h4 class="card-title">Help your customers</h4>
+                                        <p class="card-text read-more-content" id="construction" style="height: 145px;">Maximising the Return on Investment (ROI) is the primary purpose of a construction company that intends to sell properties. You want to make sure you will build the new building(s) in a strategic location, good area, and easy to sell. Our application could offer a semiannual plan that is </p>
+                                        <div class="d-flex"><a class="link-light btn read-more dark-yellow m-auto" style="border-radius: 13px;" data-target="#construction" data-css="read-more-collapse">Read more&nbsp; &nbsp;&nbsp;<i class="fas fa-chevron-down" data-target="#construction" data-css="read-more-collapse"></i></a></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col" id="item3">
+                                <div class="card"><img class="card-img-top w-100 d-block fit-cover" style="height: 200px;" src="assets/img/realtor.svg">
+                                    <div class="card-body shadow p-4">
+                                        <h4 class="card-title">Analyze before building</h4>
+                                        <p class="card-text read-more-content" id="realtor" style="height: 145px;">Having a base price for comparison can help a realtor save time handling many records of sold properties manually and visiting the property personally to give a rough estimate to a client. The realtor still has to inspect the property’s interior; however, this application speeds up the </p>
+                                        <div class="d-flex"><a class="link-light btn read-more dark-yellow m-auto" style="border-radius: 13px;" data-target="#realtor" data-css="read-more-collapse">Read more&nbsp; &nbsp;&nbsp;<i class="fas fa-chevron-down" data-target="#realtor" data-css="read-more-collapse"></i></a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pagination-scrollable d-block d-lg-none" data-target="service-scrollable"><span class="bullet active"></span><span class="bullet"></span><span class="bullet"></span></div>
+                </div>
+            </div>
+            <div class="d-flex"><a class="link-light shadow-sm btn btn-lg medium-purple m-auto" href="#" style="width: 40vh;border-radius: 10px;">Get it now!</a></div>
+        </section>
+        <section class="container" style="height: 10vh;"></section>
+        <section class="container-xxl p-lg-4 p-xxl-1">
+            <h1 class="fw-bold text-center dark-blue-text" id="price-plans" style="font-family: Poppins, sans-serif;">Check the best plan for you</h1>
+            <hr class="topic dark-blue-text">
+            <div class="plans" style="margin-top: 5rem;">
+                <div class="row m-0 m-md-4 m-lg-auto">
+                    <div class="col col-12 col-md-6 col-lg-3 p-0">
+                        <div class="card shadow-sm light-pink-border mb-4">
+                            <div class="card-header light-pink pt-4 pb-3">
+                                <h2 class="text-center text-light mb-0" style="font-family: Poppins, sans-serif;">Free</h2>
+                            </div>
+                            <div class="card-body pt-4">
+                                <div class="text-center mb-3">
+                                    <h3 class="d-inline-block" style="margin-right: 5px;">€0.00</h3>
+                                    <h6 class="text-dark d-inline-block mb-2">20 days</h6>
+                                </div>
+                                <div class="px-2"><span>Phasellus libero commodo interdum</span>
+                                    <hr class="mx-auto"><span>Phasellus libero commodo interdum</span>
+                                    <hr class="mx-auto"><span>Phasellus libero commodo interdum</span>
+                                    <hr class="mx-auto"><span>Phasellus libero commodo interdum</span>
+                                    <hr class="mx-auto">
+                                </div>
+                                <div class="text-center d-grid mt-5"><a class="link-light shadow btn btn-lg medium-purple" href="#" style="border-radius: 10px;">Get started</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col col-12 col-md-6 col-lg-3 p-0">
+                        <div class="card shadow-sm dark-green-border mb-4">
+                            <div class="card-header dark-green pt-4 pb-3">
+                                <h2 class="text-center text-light mb-0" style="font-family: Poppins, sans-serif;">Monthly</h2>
+                            </div>
+                            <div class="card-body pt-4">
+                                <div class="text-center mb-3">
+                                    <h3 class="d-inline-block" style="margin-right: 5px;">€27.00</h3>
+                                    <h6 class="text-dark d-inline-block mb-2">monthly</h6>
+                                </div>
+                                <div class="px-2"><span>Phasellus libero commodo interdum</span>
+                                    <hr class="mx-auto"><span>Phasellus libero commodo interdum</span>
+                                    <hr class="mx-auto"><span>Phasellus libero commodo interdum</span>
+                                    <hr class="mx-auto"><span>Phasellus libero commodo interdum</span>
+                                    <hr class="mx-auto">
+                                </div>
+                                <div class="text-center d-grid mt-5"><a class="link-light shadow-sm btn btn-lg medium-purple" href="#" style="border-radius: 10px;">Get started</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col col-12 col-md-6 col-lg-3 p-0">
+                        <div class="card shadow-sm dark-blue-border mb-4">
+                            <div class="card-header dark-blue pt-4 pb-3">
+                                <h2 class="text-center text-light mb-0" style="font-family: Poppins, sans-serif;">Semiannual</h2>
+                            </div>
+                            <div class="card-body pt-4">
+                                <div class="text-center mb-3">
+                                    <h3 class="d-inline-block" style="margin-right: 5px;">€20.00</h3>
+                                    <h6 class="text-dark d-inline-block mb-2">monthly</h6>
+                                </div>
+                                <div class="px-2"><span>Phasellus libero commodo interdum</span>
+                                    <hr class="mx-auto"><span>Phasellus libero commodo interdum</span>
+                                    <hr class="mx-auto"><span>Phasellus libero commodo interdum</span>
+                                    <hr class="mx-auto"><span>Phasellus libero commodo interdum</span>
+                                    <hr class="mx-auto">
+                                </div>
+                                <div class="text-center d-grid mt-5"><a class="link-light shadow-sm btn btn-lg medium-purple" href="#" style="border-radius: 10px;">Get started</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col col-12 col-md-6 col-lg-3 p-0">
+                        <div class="card shadow-sm recommend dark-yellow-border mb-4">
+                            <div class="card-header dark-yellow pt-4 pb-3 bd">
+                                <h2 class="text-center text-light mb-0" style="font-family: Poppins, sans-serif;">Annual</h2>
+                            </div>
+                            <div class="card-body pt-4">
+                                <div class="text-center mb-3">
+                                    <h3 class="d-inline-block" style="margin-right: 5px;">€15.00</h3>
+                                    <h6 class="text-dark d-inline-block mb-2">monthly</h6>
+                                </div>
+                                <div class="px-2"><span>Phasellus libero commodo interdum</span>
+                                    <hr class="mx-auto"><span>Phasellus libero commodo interdum</span>
+                                    <hr class="mx-auto"><span>Phasellus libero commodo interdum</span>
+                                    <hr class="mx-auto"><span>Phasellus libero commodo interdum</span>
+                                    <hr class="mx-auto">
+                                </div>
+                                <div class="text-center d-grid mt-5"><a class="link-light shadow btn btn-lg medium-purple" href="#" style="border-radius: 10px;">Get started</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="container"></section>
+        <section class="container">
+            <div class="sale-ad"><img src="assets/img/sale-ad.jpg"></div>
+        </section>
+        <section class="container mb-2 mb-md-5" style="height: 5vh;"></section>
+        <section class="container">
+            <div class="mx-auto" style="max-width: 1000px;">
+                <div class="card shadow-sm" style="border-radius: 10px;">
+                    <div class="text-light bg-dark card-header pt-4 pb-3" style="border-top-left-radius: 10px;border-top-right-radius: 10px;">
+                        <h2 class="text-center mb-0" id="contact-form" style="font-family: Poppins, sans-serif;">Contact us</h2>
+                    </div>
+                    <div class="card-body pt-5 px-3 px-md-5">
+                        <form style="font-family: Inter, sans-serif;" method="post">
+                            <div class="row">
+                                <div class="col col-12 col-md">
+                                    <div class="mb-5">
+                                        <h5 style="font-family: Poppins, sans-serif;">Want to talk to us?</h5>
+                                        <p class="mb-4" style="padding-right: 10px;font-family: Inter, sans-serif;">Lorem ipsum dolor sit amet, consectetur adipiscing elit turpis molestie, dictum est a, mattis tellus. Sed dignissim,</p>
+                                        <div class="mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-envelope-fill fs-4 light-blue-text">
+                                                <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z"></path>
+                                            </svg><span class="fw-bold" style="margin: -1px;margin-left: 10px;font-family: Inter, sans-serif;">spv@priprietarie.com.ie</span></div>
+                                        <div class="mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-telephone-fill fs-4 light-blue-text">
+                                                <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"></path>
+                                            </svg><span class="fw-bold" style="margin: -1px;margin-left: 10px;font-family: Inter, sans-serif;">(00) 0000 0000</span></div>
+                                        <div><i class="fas fa-headset fs-4 light-blue-text"></i><span class="fw-bold" style="margin: -1px;margin-left: 10px;font-family: Inter, sans-serif;">0800 000 0000</span></div>
+                                    </div>
+                                </div>
+                                <div class="col col-12 col-md">
+                                    <div class="mb-5"><label class="form-label" style="margin-left: 10px;">Name</label><input class="shadow-sm form-control" type="text" data-bs-toggle="tooltip" data-bss-tooltip="" id="name" placeholder="name" style="font-family: Inter, sans-serif;" pattern="[a-zA-Z]" required="" title="Name must not exceed 100 characters"><span class="error-msg invalid mb-1">Missing name or out of required size</span><label class="form-label" style="font-family: Inter, sans-serif;margin-left: 10px;">E-mail</label><input class="shadow-sm form-control" type="email" data-bs-toggle="tooltip" data-bss-tooltip="" id="email" placeholder="e-mail" style="font-family: Inter, sans-serif;" required="" title="Must use a valid email format (example@email.com)"><span class="error-msg invalid mb-1">Missing email or invalid email format</span><textarea class="shadow-sm form-control mt-3" data-bs-toggle="tooltip" data-bss-tooltip="" id="message" placeholder="message" style="height: 195px;font-family: Inter, sans-serif;" spellcheck="true" required="" minlength="10" maxlength="200" name="message" title="Message must be at least 10 characters long and smaller than 200."></textarea><span class="error-msg invalid">Missing message or out of required size</span>
+                                        <div class="text-end" id="word-counter"><span id="num-word">0</span><span>/200</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col text-center"><a class="link-light btn btn-lg medium-purple" id="send-contact" style="width: 100%;max-width: 350px;" role="button">Send</a></div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="container" style="height: 10vh;"></section>
+    </main>
+    <footer th:replace="fragments/footer :: footer"></footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js" integrity="sha256-eTyxS0rkjpLEo16uXTS0uVCS4815lc40K2iVpWDvdSY=" crossorigin="anonymous"></script>
+    <script src="assets/js/script.min.js"></script>
+    <script src="assets/js/requests/form_and_notification.min.js"></script>
+    <script src="assets/js/requests/home.min.js"></script>
 </body>
+
 </html>

@@ -1,5 +1,6 @@
 package com.raulfuzita.spv.registration;
 
+import com.raulfuzita.spv.prediction.response.ResponseRequest;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -7,6 +8,7 @@ import java.time.format.DateTimeFormatter;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.raulfuzita.spv.email.EmailSender;
@@ -33,7 +35,8 @@ public class RegistrationService {
 		this.emailSender = emailSender;
 	}
 
-	public String register(RegistrationRequest request) {
+	
+	public ResponseEntity<ResponseRequest<String>> register(RegistrationRequest request) {
 		boolean isValidEmail = emailValidator.test(request.getEmail());
 		if (!isValidEmail) {
 			throw new IllegalStateException("Email not valid");
@@ -41,13 +44,15 @@ public class RegistrationService {
 		
 		LocalDate newBirthday = LocalDate.parse(request.getBirthday(), 
 		DateTimeFormatter.ofPattern("yyyy-MM-dd"));
-		String token = useService.signupUser(
-				new User(
-						request.getName(),
-						request.getEmail(),
-						request.getPassword(),
-						newBirthday,
-						UserRole.USER));
+		User user = new User(
+				request.getName(),
+				request.getEmail(),
+				request.getPassword(),
+				newBirthday,
+				UserRole.USER);
+		user.setEnabled(true);
+		
+		String token = useService.signupUser(user);
 		
 		// emailSender.send(request.getEmail(), token);
 		// https://youtu.be/QwQuro7ekvc?t=5603
@@ -55,7 +60,12 @@ public class RegistrationService {
 		
 		// emailSender.send(request.getEmail(), buildEmail(request.getName(), link));
 		
-		return token;
+		ResponseRequest<String> reponse = new ResponseRequest.Builder<>(token)
+				.message("success")
+				.status(200)
+				.error("no errors").build();
+		
+		return ResponseEntity.ok(reponse);
 	}
 	
 	@Transactional
