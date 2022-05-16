@@ -34,7 +34,7 @@ public class PredictionController {
 	}
 	
 	@PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<ResponseRequest<Property>> predict(@RequestBody Property property) throws JSONException {
+	public ResponseEntity<ResponseRequest<Property>> predict(@RequestBody Property property) {
 		
 		Property propertyData = predictProperty(property);
 		
