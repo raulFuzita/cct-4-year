@@ -6,17 +6,20 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
-@CrossOrigin(origins="http://127.0.0.1:8080")
+import com.raulfuzita.spv.prediction.Property;
+
+@CrossOrigin(origins="http://localhost:8080")
 @Controller
-public class Dashboard {
+public class Prediction {
 
-	@GetMapping("dashboard")
-	public String login(Model model) {
+	@GetMapping("prediction")
+	public String prediction(Model model) {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		String username = authentication.getName();
 		model.addAttribute("username", username);
-		return "dashboard";
+		return "prediction";
 	}
-	
 }

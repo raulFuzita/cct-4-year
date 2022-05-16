@@ -3,6 +3,7 @@ package com.raulfuzita.spv.prediction.request;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.http.MediaType;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
@@ -12,6 +13,7 @@ import org.springframework.web.reactive.function.client.WebClient;
 import com.raulfuzita.spv.prediction.Property;
 import com.raulfuzita.spv.security.config.PredictionServerConfig;
 
+@Component
 @EnableConfigurationProperties(PredictionServerConfig.class)
 @Service
 public class PredictionRequestService {
@@ -34,7 +36,7 @@ public class PredictionRequestService {
 		
 		return this.webClient.post().uri(uriBuilder -> uriBuilder
 							.path("/search")
-							.queryParam("api_key", API_KEY).build())
+							.queryParam("api_key", this.API_KEY).build())
 						.contentType(MediaType.APPLICATION_FORM_URLENCODED)
 						.accept(MediaType.APPLICATION_JSON)
 						.body(BodyInserters.fromFormData(bodyValues))

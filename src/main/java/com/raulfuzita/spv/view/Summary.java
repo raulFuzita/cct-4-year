@@ -6,17 +6,18 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
-@CrossOrigin(origins="http://127.0.0.1:8080")
+@CrossOrigin(origins="http://localhost:8080")
 @Controller
-public class Dashboard {
+public class Summary {
 
-	@GetMapping("dashboard")
-	public String login(Model model) {
+	@GetMapping("summary")
+	public String summary(Model model) {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		String username = authentication.getName();
 		model.addAttribute("username", username);
-		return "dashboard";
+		return "summary";
 	}
 	
 }

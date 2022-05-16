@@ -19,11 +19,11 @@
 						class="profile-border-pic rounded-circle bd-2 medium-green-border">
 						<a id="pic-trigger" data-toggle="dropdown" aria-expanded="false"
 							href="#" role="button"><img class="profile-pic"
-							src="assets/img/profile.png"></a>
+							src="assets/img/profile.jpg"></a>
 					</div>
 					<div class="dropdown d-flex">
-						<a id="user-name" class="dropdown-toggle user-name" aria-expanded="false"
-							data-bs-toggle="dropdown" href="#">John Doe</a>
+						<a th:text="${username}" id="user-name" class="dropdown-toggle user-name" aria-expanded="false"
+							data-bs-toggle="dropdown" href="#"></a>
 						<div class="dropdown-menu">
 							<a class="dropdown-item" href="dashboard">Dashboard</a><a
 								class="dropdown-item" href="profile">Profile</a><a

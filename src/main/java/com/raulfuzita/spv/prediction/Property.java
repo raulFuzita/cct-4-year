@@ -28,6 +28,8 @@ public class Property {
 	)
 	protected long id;
 	
+	protected String name;
+	
 	@Column(nullable = false)
 	protected String address1;
 	protected String address2 = "";
@@ -94,6 +96,14 @@ public class Property {
 
 	public void setId(long id) {
 		this.id = id;
+	}
+	
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String getAddress1() {

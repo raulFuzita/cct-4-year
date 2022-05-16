@@ -43,7 +43,11 @@
                     <div class="bright-white px-4 pt-4 pb-1 mb-4">
                         <div class="mb-5">
                             <h6 class="dark-gray-text" style="font-family: 'Open Sans', sans-serif;">Property name</h6>
-                            <h3 id="name" class="dark-gray-text" style="font-family: Poppins, sans-serif;">House Red</h3>
+                            <h3 th:text="${param != null} ? ${param.name}" id="name" class="dark-gray-text" style="font-family: Poppins, sans-serif;">Red House</h3>
+                        </div>
+                        <div class="mb-5">
+                            <h6 class="dark-gray-text" style="font-family: 'Open Sans', sans-serif;">Property type</h6>
+                            <h3 th:text="${param != null} ? ${param.propertyStringType}" id="name" class="dark-gray-text" style="font-family: Poppins, sans-serif;">House</h3>
                         </div>
                         <div class="mb-5">
                             <h6 class="dark-gray-text" style="font-family: 'Open Sans', sans-serif;">Address</h6>
@@ -51,7 +55,7 @@
                         </div>
                         <div class="mb-5">
                             <h6 class="dark-gray-text" style="font-family: 'Open Sans', sans-serif;">Estimated date</h6>
-                            <h4 id="date" class="dark-gray-text" style="font-family: Poppins, sans-serif;">22/05/2022</h4>
+                            <h4 th:text="${param != null} ? ${param.year}" id="date" class="dark-gray-text" style="font-family: Poppins, sans-serif;">22/05/2022</h4>
                         </div>
                     </div>
                     <h3 class="card-title darker-yellow-text" style="font-family: Poppins, sans-serif;">Property feature</h3>
@@ -62,7 +66,7 @@
                                 <h4 id="name-1" class="dark-gray-text" style="font-family: Poppins, sans-serif;">Bedroom (quantity)</h4>
                             </div>
                             <div class="col">
-                                <h4 class="text-end dark-gray-text" id="bedroom" style="font-family: Poppins, sans-serif;">3</h4>
+                                <h4 th:text="${param != null} ? ${param.bedroom}" class="text-end dark-gray-text" id="bedroom" style="font-family: Poppins, sans-serif;">0</h4>
                             </div>
                         </div>
                         <div class="row mb-3">
@@ -70,7 +74,7 @@
                                 <h4 id="name-3" class="dark-gray-text" style="font-family: Poppins, sans-serif;">Bathroom (quantity)</h4>
                             </div>
                             <div class="col">
-                                <h4 class="text-end dark-gray-text" id="bathrrom" style="font-family: Poppins, sans-serif;">2</h4>
+                                <h4 th:text="${param != null} ? ${param.bathroom}" class="text-end dark-gray-text" id="bathrrom" style="font-family: Poppins, sans-serif;">0</h4>
                             </div>
                         </div>
                         <div class="row mb-3">
@@ -78,7 +82,7 @@
                                 <h4 id="name-5" class="dark-gray-text" style="font-family: Poppins, sans-serif;">Total living area (m²)</h4>
                             </div>
                             <div class="col">
-                                <h4 class="text-end dark-gray-text" id="living-area" style="font-family: Poppins, sans-serif;">50</h4>
+                                <h4 th:text="${param != null} ? ${param.propertySize}" class="text-end dark-gray-text" id="living-area" style="font-family: Poppins, sans-serif;">0</h4>
                             </div>
                         </div>
                     </div>
@@ -91,7 +95,7 @@
                             <h3 class="darker-yellow-text" style="font-family: Poppins, sans-serif;">Estimated value</h3>
                         </div>
                         <div class="col">
-                            <h4 class="fw-bold text-end dark-gray-text" id="valuation" style="font-family: Poppins, sans-serif;">€ 230,000.00</h4>
+                            <h4 th:text="${param != null} ? '€ ' + ${param.price}" class="fw-bold text-end dark-gray-text" id="valuation" style="font-family: Poppins, sans-serif;">€ 0.00</h4>
                         </div>
                     </div>
                     <hr class="darker-yellow-text bd-1 opacity-100 w-100">
@@ -104,10 +108,10 @@
             <div class="d-flex">
                 <div class="row d-inline-flex mx-auto">
                     <div class="col">
-                        <div class="mx-auto mt-4" style="max-width: 350px;"><a class="link-light btn btn-lg salmon-red" id="delete" href="prediction.html" style="width: 100%;min-width: 266px;">delete</a></div>
+                        <div class="mx-auto mt-4" style="max-width: 350px;"><a class="link-light btn btn-lg salmon-red" id="delete" href="prediction" style="width: 100%;min-width: 266px;">delete</a></div>
                     </div>
                     <div class="col">
-                        <div class="mx-auto mt-4" style="max-width: 350px;"><a class="link-light btn btn-lg medium-purple" id="confirm" href="prediction.html" style="width: 100%;min-width: 266px;">confirm</a></div>
+                        <div class="mx-auto mt-4" style="max-width: 350px;"><a class="link-light btn btn-lg medium-purple" id="confirm" href="prediction" style="width: 100%;min-width: 266px;">confirm</a></div>
                     </div>
                 </div>
             </div>

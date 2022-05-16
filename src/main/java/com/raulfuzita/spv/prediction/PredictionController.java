@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.raulfuzita.spv.prediction.response.ResponseRequest;
 
-@CrossOrigin(origins="http://127.0.0.1:8080")
+@CrossOrigin(origins="http://localhost:8080")
 @RestController
 @RequestMapping(path = "api/v1/prediction")
 public class PredictionController {
@@ -24,21 +24,26 @@ public class PredictionController {
 		this.predictionService = predictionService;
 	}
 	
-	@PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<ResponseRequest<Property>> predict(@RequestBody Property property) throws JSONException {
+	protected Property predictProperty(Property property) {
 		Property propertyData = predictionService.searchAddress(property);
 		System.out.println(propertyData);
 		
 		propertyData = predictionService.predictProperty(propertyData);
 		System.out.println(propertyData);
+		return propertyData;
+	}
+	
+	@PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<ResponseRequest<Property>> predict(@RequestBody Property property) throws JSONException {
+		
+		Property propertyData = predictProperty(property);
 		
 		ResponseRequest<Property> response = new ResponseRequest.Builder<>(propertyData)
 				.message("success")
 				.status(200)
 				.error("no error").build();
-		
 		// return new ResponseEntity<String>(json.toString(), HttpStatus.OK);
 		return ResponseEntity.ok(response);
-
 	}
+	
 }

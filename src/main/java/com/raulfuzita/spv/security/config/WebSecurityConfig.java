@@ -8,9 +8,8 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 import com.raulfuzita.spv.user.UserService;
 
@@ -32,7 +31,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http
 			.authorizeHttpRequests()
-			.antMatchers("/about*", "/login*", "/logout", "/register*", "/index", 
+			.antMatchers("/about*", "/login*", "/logout*", "/login?logout*", "/register*", "/index", 
 					"/", "/resources/**", "/assets/**").permitAll()
 			.antMatchers(
 					"/api/v1/registration/**", 
@@ -47,7 +46,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 			.defaultSuccessUrl("/dashboard", true)
 			.failureUrl("/login?error=true")
 			.and()
-			.logout().logoutSuccessUrl("/")
+			.logout()
+			.logoutSuccessUrl("/login?logout")
 			.and().csrf().disable();
 	}
 	

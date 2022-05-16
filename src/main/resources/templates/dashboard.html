@@ -40,7 +40,7 @@
                                 <h3 class="text-center card-title dark-green-text">Planning</h3>
                                 <p class="card-text px-3 d-none d-md-block">You can predict the price of a property over a given period.</p>
                                 <hr class="mx-auto d-none d-md-block">
-                                <div class="mt-4"><a class="link-light btn btn-lg medium-purple" href="prediction.html" style="width: 100%;">start now</a></div>
+                                <div class="mt-4"><a class="link-light btn btn-lg medium-purple" href="prediction" style="width: 100%;">start now</a></div>
                             </div>
                         </div>
                     </div>
@@ -51,7 +51,7 @@
                                 <h3 class="text-center card-title dark-green-text">Estimate</h3>
                                 <p class="card-text px-3 d-none d-md-block">Calculate the price of your property, in the most real way possible.</p>
                                 <hr class="mx-auto d-none d-md-block">
-                                <div class="mt-4"><a class="link-light btn btn-lg medium-purple" href="prediction.html" style="width: 100%;">start now</a></div>
+                                <div class="mt-4"><a class="link-light btn btn-lg medium-purple" href="prediction" style="width: 100%;">start now</a></div>
                             </div>
                         </div>
                     </div>
@@ -66,11 +66,19 @@
                         <div>
                             <div class="row">
                                 <div class="col col-12 col-md-8">
-                                    <div class="form-group mb-4"><i class="fa fa-search fadeout-white-text"></i><input type="search" id="search-record" class="form-control search" placeholder="Search"></div>
+                                    <div class="form-group mb-4">
+                                    	<i class="fa fa-search fadeout-white-text"></i>
+                                    	<input type="search" id="search-record" class="form-control search" placeholder="Search">
+                                    </div>
                                 </div>
                                 <div class="col col-12 col-md">
-                                    <div class="dropdown float-end"><button class="btn btn-primary dropdown-toggle pill dark-yellow dark-yellow-border px-3 px-md-5 mb-4" aria-expanded="false" data-bs-toggle="dropdown" id="sort-btn" type="button">Sort by</button>
-                                        <div class="dropdown-menu"><a class="dropdown-item" id="sort-by-name" href="#">Name</a><a class="dropdown-item" id="sort-by-type" href="#">Type</a><a class="dropdown-item" id="sort-by-valuation" href="#">Valuation</a></div>
+                                    <div class="dropdown float-end">
+                                    	<button class="btn btn-primary dropdown-toggle pill dark-yellow dark-yellow-border px-3 px-md-5 mb-4" aria-expanded="false" data-bs-toggle="dropdown" id="sort-btn" type="button">Sort by</button>
+                                        <div class="dropdown-menu">
+                                        	<a class="dropdown-item" style="cursor: pointer;" id="sort-by-name">Name</a>
+                                        	<a class="dropdown-item" style="cursor: pointer;" id="sort-by-type">Type</a>
+                                        	<a class="dropdown-item" style="cursor: pointer;" id="sort-by-valuation">Valuation</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -87,18 +95,17 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                    	<th:block th:each="record : ${records}">
                                         <tr>
-                                            <td class="text-truncate cell-limit">House Red very large name</td>
-                                            <td class="text-truncate cell-limit">Estimate</td>
-                                            <td class="text-truncate fw-bold dark-yellow-text cell-limit">€ 300.000</td>
-                                            <td><a class="fw-bold link-light btn pill medium-purple px-md-5" href="#">view</a></td>
+                                            <td class="text-truncate cell-limit" th:utext="${record.name}"></td>
+                                            <td class="text-truncate cell-limit" th:utext="${record.type}"></td>
+                                            <td class="text-truncate fw-bold dark-yellow-text cell-limit" th:utext="${record.price}"></td>
+                                            <td>
+                                            	<a class="fw-bold link-light btn pill medium-purple px-md-5" 
+                                            		th:href="@{/record/view(id=${record.id})}">view</a>
+                                            </td>
                                         </tr>
-                                        <tr>
-                                            <td class="text-truncate cell-limit">House Green</td>
-                                            <td class="text-truncate cell-limit">Planning</td>
-                                            <td class="text-truncate fw-bold dark-yellow-text cell-limit">€ 500.000</td>
-                                            <td><a class="fw-bold link-light btn pill medium-purple px-md-5" href="#">view</a></td>
-                                        </tr>
+                                        </th:block>
                                     </tbody>
                                 </table>
                             </div>

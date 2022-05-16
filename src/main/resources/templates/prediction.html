@@ -28,7 +28,9 @@
     	<a id="back-to-top" class="btn btn-primary" href="#" type="button"><i class="fa fa-arrow-up"></i></a>
         <section style="height: 2vh;"></section>
         <section>
-            <div class="text-start bg-white shadow-sm mb-4 px-5 py-2"><a class="text-decoration-none" href="dashboard.html"><i class="fa fa-calendar fs-4 dark-blue-text" id="predict-icon" style="margin-right: 10px;"></i>
+            <div class="text-start bg-white shadow-sm mb-4 px-5 py-2">
+            	<a class="text-decoration-none" href="dashboard.html">
+            		<i class="fa fa-calendar fs-4 dark-blue-text" id="predict-icon" style="margin-right: 10px;"></i>
                     <h2 class="d-inline-block dark-blue-text" id="predict-type">Planning</h2>
                 </a></div>
         </section>
@@ -40,7 +42,7 @@
                             <h3 class="dark-gray-text" style="font-family: Poppins, sans-serif;">Select property type</h3>
                         </div>
                         <div class="scrolling-wrapper-flexbox-md" style="min-height: 70px;">
-                            <div class="form-check form-check-inline tag-label" for="ck-7"><input class="form-check-input" type="radio" id="ck-7" name="property-type" data-value="8" checked=""><label class="form-check-label btn pill light-white dark-gray-text" for="ck-7">House</label></div>
+                            <div class="form-check form-check-inline tag-label" for="ck-7"><input class="form-check-input" type="radio" id="ck-7" name="property-type" data-value="5" checked=""><label class="form-check-label btn pill light-white dark-gray-text" for="ck-7">House</label></div>
                             <div class="form-check form-check-inline tag-label" for="ck-3"><input class="form-check-input" type="radio" id="ck-3" name="property-type" data-value="8"><label class="form-check-label btn pill light-white dark-gray-text" for="ck-3">Studio</label></div>
                             <div class="form-check form-check-inline tag-label" for="ck-1"><input class="form-check-input" type="radio" id="ck-1" name="property-type" data-value="10"><label class="form-check-label btn pill light-white dark-gray-text" for="ck-1">Townhouse</label></div>
                             <div class="form-check form-check-inline tag-label" for="ck-2"><input class="form-check-input" type="radio" id="ck-2" name="property-type" data-value="6"><label class="form-check-label btn pill light-white dark-gray-text" for="ck-2">Semi-D</label></div>
@@ -62,14 +64,35 @@
                             <div class="card-body">
                                 <h4 class="card-title dark-gray-text mb-4">Fill in the form below</h4>
                                 <div>
-                                    <form style="font-family: Inter, sans-serif;"><label class="form-label fw-bolder dark-gray-text" style="font-family: Inter, sans-serif;margin-left: 10px;">Property name</label><input class="shadow-sm form-control light-gray-placeholder" type="text" data-bs-toggle="tooltip" data-bss-tooltip="" id="property-name" placeholder="property name" style="font-family: Inter, sans-serif;" required="" value="Test" title="Name must be smaller than 80" minlength="0" maxlength="80"><span class="error-msg invalid mb-3">Missing name</span><label class="form-label fw-bolder dark-gray-text" style="font-family: Inter, sans-serif;margin-left: 10px;">Address 1</label><input class="shadow-sm form-control light-gray-placeholder" type="text" data-bs-toggle="tooltip" data-bss-tooltip="" id="address-1" placeholder="location" style="font-family: Inter, sans-serif;" required="" value="Wood Dale View, Woodale, Ballycragh, Firhouse Village" title="Address must be smaller than 150 characters" minlength="0" maxlength="150"><span class="error-msg invalid mb-3">Missing address 1</span><label class="form-label fw-bolder dark-gray-text" style="font-family: Inter, sans-serif;margin-left: 10px;">Address 2 (Optional)</label><input class="shadow-sm form-control mb-3 light-gray-placeholder" type="text" data-bs-toggle="tooltip" data-bss-tooltip="" id="address-2" placeholder="location" style="font-family: Inter, sans-serif;" title="Must be smaller than 100 characters" maxlength="100" minlength="0">
+                                    <form style="font-family: Inter, sans-serif;">
+                                    	<label class="form-label fw-bolder dark-gray-text" style="font-family: Inter, sans-serif;margin-left: 10px;">Property name</label>
+                                    	<input class="shadow-sm form-control light-gray-placeholder" type="text" data-bs-toggle="tooltip" data-bss-tooltip="" id="property-name" placeholder="property name" style="font-family: Inter, sans-serif;" required="" value="" title="Name must be smaller than 80" minlength="0" maxlength="80">
+                                    	<span class="error-msg invalid mb-3">Missing name</span>
+                                    	
+                                    	<label class="form-label fw-bolder dark-gray-text" style="font-family: Inter, sans-serif;margin-left: 10px;">Address 1</label>
+                                    	<input class="shadow-sm form-control light-gray-placeholder" type="text" data-bs-toggle="tooltip" data-bss-tooltip="" id="address-1" placeholder="location" style="font-family: Inter, sans-serif;" required="" value="" title="Address must be smaller than 150 characters" minlength="0" maxlength="150">
+                                    	<span class="error-msg invalid mb-3">Missing address 1</span>
+                                    	
+                                    	<label class="form-label fw-bolder dark-gray-text" style="font-family: Inter, sans-serif;margin-left: 10px;">Address 2 (Optional)</label>
+                                    	<input class="shadow-sm form-control mb-3 light-gray-placeholder" type="text" data-bs-toggle="tooltip" data-bss-tooltip="" id="address-2" placeholder="location" style="font-family: Inter, sans-serif;" title="Must be smaller than 100 characters" maxlength="100" minlength="0">
                                         <div class="row">
-                                            <div class="col col-12 col-lg"><label class="form-label fw-bolder dark-gray-text" style="font-family: Inter, sans-serif;margin-left: 10px;">City</label><select class="shadow-sm form-select mb-3 light-gray-placeholder" id="city"></select></div>
-                                            <div class="col col-12 col-lg"><label class="form-label fw-bolder dark-gray-text" style="font-family: Inter, sans-serif;margin-left: 10px;">Country</label><select class="shadow-sm form-select mb-3 light-gray-placeholder" id="country" required=""></select></div>
-                                            <div class="col col-12 col-lg"><label class="form-label fw-bolder dark-gray-text" style="font-family: Inter, sans-serif;margin-left: 10px;">Postal code</label><input class="shadow-sm form-control mb-3 light-gray-placeholder" type="text" data-bs-toggle="tooltip" data-bss-tooltip="" id="postal-code" placeholder="Eircode" style="font-family: Inter, sans-serif;" minlength="0" maxlength="50" title="Postal code must be smaller than 50 characters"></div>
+                                            <div class="col col-12 col-lg">
+                                            	<label class="form-label fw-bolder dark-gray-text" style="font-family: Inter, sans-serif;margin-left: 10px;">City</label>
+                                            		<select class="shadow-sm form-select mb-3 light-gray-placeholder" id="city"></select>
+                                            	</div>
+                                            <div class="col col-12 col-lg">
+                                            	<label class="form-label fw-bolder dark-gray-text" style="font-family: Inter, sans-serif;margin-left: 10px;">Country</label>
+                                            	<select class="shadow-sm form-select mb-3 light-gray-placeholder" id="country" required=""></select>
+                                            </div>
+                                            <div class="col col-12 col-lg">
+                                            	<label class="form-label fw-bolder dark-gray-text" style="font-family: Inter, sans-serif;margin-left: 10px;">Postal code</label>
+                                            	<input class="shadow-sm form-control mb-3 light-gray-placeholder" type="text" data-bs-toggle="tooltip" data-bss-tooltip="" id="postal-code" placeholder="Eircode" style="font-family: Inter, sans-serif;" minlength="0" maxlength="50" title="Postal code must be smaller than 50 characters"></div>
                                         </div>
                                         <div class="row">
-                                            <div class="col col-12 col-lg"><label class="form-label fw-bolder dark-gray-text" style="font-family: Inter, sans-serif;margin-left: 10px;">Prediction for</label><input class="shadow-sm form-control light-gray-placeholder" id="date" type="date" name="date" value="2022-05-14"><span class="error-msg invalid mb-3">Missing date</span></div>
+                                            <div class="col col-12 col-lg">
+                                            	<label class="form-label fw-bolder dark-gray-text" style="font-family: Inter, sans-serif;margin-left: 10px;">Prediction for</label>
+                                            	<input class="shadow-sm form-control light-gray-placeholder" id="date" type="date" name="date" value=""><span class="error-msg invalid mb-3">Missing date</span>
+                                            </div>
                                             <div class="col col-12 col-lg"></div>
                                             <div class="col col-12 col-lg"></div>
                                         </div>
@@ -86,17 +109,30 @@
                                 <form>
                                     <div>
                                         <div class="row">
-                                            <div class="col col-12 col-md"><label class="form-label fw-bolder dark-gray-text" style="font-family: Inter, sans-serif;margin-left: 10px;">Bedroom</label>
+                                            <div class="col col-12 col-md">
+                                            	<label class="form-label fw-bolder dark-gray-text" style="font-family: Inter, sans-serif;margin-left: 10px;">Bedroom</label>
                                                 <div>
-                                                    <div class="shadow-sm input-group-number"><input class="form-control button-minus input-number" type="button" data-field="quantity" value="-"><input class="form-control input-number quantity-field light-gray-placeholder" type="number" id="num-bedroom" name="quantity" step="1" placeholder="0" value="3" required="" min="0"><input class="form-control button-plus input-number" type="button" data-field="quantity" value="+" minlength="0"></div><span class="error-msg invalid mb-3">Invalid number</span>
+                                                    <div class="shadow-sm input-group-number">
+                                                    <input class="form-control button-minus input-number" type="button" data-field="quantity" value="-">
+                                                    <input class="form-control input-number quantity-field light-gray-placeholder" type="number" id="num-bedroom" name="quantity" step="1" placeholder="0" value="0" required="" min="0">
+                                                    <input class="form-control button-plus input-number" type="button" data-field="quantity" value="+" minlength="0"></div>
+                                                    <span class="error-msg invalid mb-3">Invalid number</span>
                                                 </div>
                                             </div>
-                                            <div class="col col-12 col-md"><label class="form-label fw-bolder dark-gray-text" style="font-family: Inter, sans-serif;margin-left: 10px;">Bathroom</label>
+                                            <div class="col col-12 col-md">
+                                            	<label class="form-label fw-bolder dark-gray-text" style="font-family: Inter, sans-serif;margin-left: 10px;">Bathroom</label>
                                                 <div>
-                                                    <div class="shadow-sm input-group-number"><input class="form-control button-minus input-number" type="button" data-field="quantity" value="-"><input class="form-control input-number quantity-field light-gray-placeholder" type="number" id="num-bathroom" name="quantity" step="1" placeholder="0" value="1" required="" min="0"><input class="form-control button-plus input-number" type="button" data-field="quantity" value="+" minlength="0"></div><span class="error-msg invalid mb-1">Invalid number</span>
+                                                    <div class="shadow-sm input-group-number">
+                                                    <input class="form-control button-minus input-number" type="button" data-field="quantity" value="-">
+                                                    <input class="form-control input-number quantity-field light-gray-placeholder" type="number" id="num-bathroom" name="quantity" step="1" placeholder="0" value="0" required="" min="0">
+                                                    <input class="form-control button-plus input-number" type="button" data-field="quantity" value="+" minlength="0"></div>
+                                                    <span class="error-msg invalid mb-1">Invalid number</span>
                                                 </div>
                                             </div>
-                                        </div><label class="form-label fw-bolder dark-gray-text" style="font-family: Inter, sans-serif;margin-left: 10px;">Living area (m²)</label><input class="shadow-sm form-control mb-3 light-gray-placeholder" type="number" id="living-area" placeholder="numeric format (natural numbers)" style="font-family: Inter, sans-serif;max-width: 328px;" minlength="0" required="" value="98"><span class="error-msg invalid mb-3">Invalid number</span>
+                                        </div>
+                                        <label class="form-label fw-bolder dark-gray-text" style="font-family: Inter, sans-serif;margin-left: 10px;">Living area (m²)</label>
+                                        <input class="shadow-sm form-control mb-3 light-gray-placeholder" type="number" id="living-area" placeholder="numeric format (natural numbers)" style="font-family: Inter, sans-serif;max-width: 328px;" minlength="0" required="" value="0">
+                                        <span class="error-msg invalid mb-3">Invalid number</span>
                                     </div>
                                 </form>
                             </div>
