@@ -1,13 +1,13 @@
 from geopy.geocoders.base import Geocoder
 
 class Geolocator:
-    def __init__(self, geolocator: Geocoder):
+    def __init__(self, glocator: Geocoder):
         """
         Initializes the geolocator
         param geolocator: Geolocator to be used
         """
-        self.geolocator = geolocator
-        self.timeout = 5
+        self.glocator = glocator
+        self.timeout = 10
 
     def set_timeout(self, timeout: int):
         """
@@ -21,7 +21,15 @@ class Geolocator:
         Returns the location of the address as a dictionary: {'latitude': latitude, 'longitude': longitude, 'address': address}
         param address: Address to be geocoded is a string
         """
-        location = self.geolocator.geocode(address, timeout=self.timeout)
+        location = self.glocator.geocode(address, timeout=self.timeout)
         return  {"latitude": location.latitude, "longitude": location.longitude, "address": location.address}
+
+    # get geocoder information
+    def get_geocoder_info(self) -> dict:
+        """
+        Returns the geocoder information
+        """
+        return self.glocator.get_geocoder_info()
+        
 
 

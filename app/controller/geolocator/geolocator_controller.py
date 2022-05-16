@@ -24,8 +24,12 @@ class GeolocatorController:
             return {"response": "Invalid API key", "status": 403}
 
         geolocator_factory = GeolocatorFactory()
-        geolocator = geolocator_factory.make("Nominatim")
-
+        if os.getenv("GOOGLE_API_KEY"):
+            geolocator = geolocator_factory.make("Google")
+        else:
+            print("Nominatim API key")
+            geolocator = geolocator_factory.make("Nominatim")
+        
         try:
             location = geolocator.get_location(address)
             return {"response": location, "status": 200}

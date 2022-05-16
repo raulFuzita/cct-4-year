@@ -4,6 +4,7 @@ import ssl
 import geopy.geocoders
 from geopy.geocoders import Nominatim
 from geopy.geocoders import GoogleV3
+import googlemaps
 from dotenv import load_dotenv
 from app.models.geolocators.geolocator import Geolocator
 
@@ -34,7 +35,7 @@ class GeolocatorFactory:
         elif geolocator_name == "Google":
             google_api_key = os.getenv("GOOGLE_API_KEY")
             if google_api_key:
-                geolocator = GoogleV3(google_api_key)
+                geolocator = GoogleV3(api_key=google_api_key)
             else:
                 raise Exception("Google API key is missing")
         else:
