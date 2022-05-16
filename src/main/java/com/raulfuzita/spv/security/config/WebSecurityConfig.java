@@ -31,7 +31,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http
 			.authorizeHttpRequests()
-			.antMatchers("/about*", "/login*", "/logout*", "/login?logout*", "/register*", "/index", 
+			.antMatchers("/about*", "/login*", "/logout*", "/loging*", "/login?logout*", "/register*", "/index", 
 					"/", "/resources/**", "/assets/**").permitAll()
 			.antMatchers(
 					"/api/v1/registration/**", 
@@ -46,8 +46,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 			.defaultSuccessUrl("/dashboard", true)
 			.failureUrl("/login?error=true")
 			.and()
-			.logout()
-			.logoutSuccessUrl("/login?logout")
+			.logout().logoutUrl("/loging")
+			.logoutSuccessUrl("/")
 			.and().csrf().disable();
 	}
 	

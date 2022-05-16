@@ -32,6 +32,17 @@ public class AllowedPages {
   		return "about";
 	}
 	
+	@RequestMapping("loging")
+	@GetMapping
+	String loging(Model model) {
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		if (authentication != null) {
+			String username = authentication.getName();
+			model.addAttribute("username", username);
+		}
+  		return "/";
+	}
+	
 	@RequestMapping("register")
 	@GetMapping
 	String signup(Model model) {
