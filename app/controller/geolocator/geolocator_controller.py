@@ -25,9 +25,10 @@ class GeolocatorController:
 
         geolocator_factory = GeolocatorFactory()
         if os.getenv("GOOGLE_API_KEY"):
+            print("GoogleV3 API")
             geolocator = geolocator_factory.make("Google")
         else:
-            print("Nominatim API key")
+            print("Nominatim API")
             geolocator = geolocator_factory.make("Nominatim")
         
         try:
