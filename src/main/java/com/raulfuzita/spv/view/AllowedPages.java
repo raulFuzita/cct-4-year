@@ -17,6 +17,7 @@ public class AllowedPages {
 		if (authentication != null) {
 			String username = authentication.getName();
 			model.addAttribute("username", username);
+			model.addAttribute("pageName", "home");
 		}
   		return "index";
 	}
@@ -28,6 +29,7 @@ public class AllowedPages {
 		if (authentication != null) {
 			String username = authentication.getName();
 			model.addAttribute("username", username);
+			model.addAttribute("pageName", "about");
 		}
   		return "about";
 	}
